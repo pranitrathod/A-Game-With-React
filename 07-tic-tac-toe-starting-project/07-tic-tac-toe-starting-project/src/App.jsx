@@ -1,10 +1,14 @@
+import Player from "./Components/Player";
 
 function App() {
-  
-
   return (
-    <h1>Coming soon...</h1>
-  )
+    <main id="game-container">
+      <ol id="players">
+      <Player name="Player 1" symbol="X"/>
+      <Player name="Player 2" symbol="O"/>
+      </ol>
+     
+    </main>
+  );
 }
-
-export default App
+export default App;
