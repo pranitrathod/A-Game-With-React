@@ -1,8 +1,8 @@
-export default Log()
-{
-    return (
-        <ol id="log">
+// export default Log()
+// {
+//     return (
+//         <ol id="log">
 
-        </ol>
-    );
-}
+//         </ol>
+//     );
+// }
