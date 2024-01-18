@@ -13,7 +13,7 @@ export default function GameBoard({onSelectSquare,activePlayer}) {
       //you dont have to do this,you have to create a deep copy and creat sameArray but update on that rather then orginal
       const updateBoard = [...prevBoard.map((index) => [...index])]; //created deep copy using spread operator
       updateBoard[rowIndex][colIndex] = activePlayer;
-      updateBoard;
+      return updateBoard;
     });
     onSelectSquare();
   }
