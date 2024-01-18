@@ -1,5 +1,6 @@
 import Player from "./Components/Player";
 import GameBoard from "./Components/GameBoard";
+import Log from "./Components/Log";
 import { useState } from "react";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     setActive((player)=>player==="X" ? "O" :"X");
   }
   return (
+    <>
     <main id="game-container">
       <ol className="highlight-player" id="players">
       <Player  isActive={active==="X"} name="Player 1" symbol="X"/>
@@ -17,6 +19,8 @@ function App() {
       </ol>
       <GameBoard onSelectSquare={handlePlayer} activePlayer={active}/>
     </main>
+    <Log/>
+    </>
   );
 }
 export default App;
