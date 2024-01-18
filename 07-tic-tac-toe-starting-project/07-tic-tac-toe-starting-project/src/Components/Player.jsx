@@ -2,35 +2,33 @@ import { useState } from "react";
 
 export default function Player({ name = "Computer", symbol,isActive }) {
     const [isEditing,setEdit]=useState(false);
-    const [Edit,save]=useState(false);
-    const [playerName,setPlayerName]=useState(name);
+    const [Edit,save]=useState("Edit");
     function edit()
-    {   console.log("inside!");
+    {console.log("inside!");
         if(!isEditing){
-            setEdit(true); 
+            setEdit(true);
+            save("Save");
         }else{
             setEdit(false);
+            save("Edit");
         }
-        save((editIt)=>!editIt);
-        //here dont get confused why the variable name is different,
-        //whenever anything changes it will change to Edit!    
-    } 
-    function handleChange(eventKey)
-    {
-    if(Edit)
-    {
-      setPlayerName(eventKey.target.value);
-    } 
     }
+    // const [name,changedName]=useState({name});
+    // function change()
+    // {
+    //     if(setEdit){
+    //         changedName()
+    //     }
+    // }
   return (
     <li className={isActive? 'active':undefined}>
       <span className="player">
-      {isEditing?<input type="text" required defaultValue={playerName} onChange={handleChange}/>:<span className="player-name">
-          {playerName}
-        </span>//Above change is also called as two-way binding when onchange triggers useState changes 
+      {isEditing?<input type="text"/>:<span className="player-name">
+          {name}
+        </span>
       }
-      <span className="player-symbol">{symbol}</span>
-      <button onClick={edit}>{Edit?"Save":"Edit"}</button>
+        <span className="player-symbol">{symbol}</span>
+        <button onClick={edit}>{Edit}</button>
       </span>
     </li>
   );
