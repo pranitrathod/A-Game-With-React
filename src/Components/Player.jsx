@@ -1,30 +1,23 @@
 import { useState } from "react";
-
-export default function Player({ name = "Computer", symbol, isActive }) {
+export default function Player({ name = "Computer", symbol, isActive,whoWon}) {
   const [isEditing, setEdit] = useState(false);
   const [Edit, save] = useState("Edit");
   const [newName, setName] = useState(name);
-  // const {player1,player2}=name;
-  // const playerNameSymbol={
-  //   [player1]:'X',
-  //   [player2]:'O'
-  // }
   function edit() {
-    console.log("inside!");
-
     if (!isEditing) {
       setEdit(true);
-      save("Save");
-    } else {
+      
+    }else {
       setEdit(false);
       save("Edit");
-    }
+    }if(isEditing){ 
+      whoWon(symbol,newName);}
   }function change(e) {
     if (setEdit) {
-      setName(e.target.value);
+      setName(e.target.value); 
     }
   }
-
+  // console.log(newName);
   return (
     <li className={isActive ? "active" : undefined}>
       <span className="player">
@@ -32,7 +25,7 @@ export default function Player({ name = "Computer", symbol, isActive }) {
           <input type="text" required value={newName} onChange={change} />
         ) : (
           <span className="player-name">{newName}</span>
-        )}
+            )}
         <span className="player-symbol">{symbol}</span>
         <button onClick={edit}>{Edit}</button>
       </span>
